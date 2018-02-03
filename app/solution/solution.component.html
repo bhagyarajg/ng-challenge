@@ -1,1 +1,20 @@
-<h1>Your Solution Here</h1>
+<h1>Your Solution Here Hello</h1>
+<table class=" table row-border hover">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">memoryAllocation</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let faasInfo of faasInfoById">
+            <td> {{faasInfo.id}}</td>
+            <td>{{faasInfo.name}}</td>
+            <td>{{faasInfo.description}}</td>
+            <td>{{faasInfo.memoryAllocation }}</td>
+
+        </tr>
+    </tbody>
+</table>
