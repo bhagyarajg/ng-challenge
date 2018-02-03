@@ -5,21 +5,18 @@
             <th scope="col">Id</th>
             <th scope="col">Name</th>
             <th scope="col">Description</th>
-            <th scope="col">memoryAllocation</th>
+            <th scope="col">Memory Allocation</th>
             <th scope="col">Status</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let faasInfo of faasInfoById">
+        <tr *ngFor="let faasInfo of faasInfoById" [ngClass]="{'red': redAlert(faasInfo.memoryAllocation * faasInfo.usage.instances) ,'amber': amberAlert(faasInfo.memoryAllocation * faasInfo.usage.instances)}">
             <td> {{faasInfo.id}}</td>
             <td>{{faasInfo.name}}</td>
             <td>{{faasInfo.description}}</td>
-            <td>{{faasInfo.memoryAllocation * faasInfo.usage.instances}}</td>
+            <td>{{faasInfo.memoryAllocation * faasInfo.usage.instances | vmwMemoryFormat}}</td>
             <td>{{faasInfo.usage.state}}</td>
             <!--<td>{{faasInfo.usage | async | json}}{{faasInfo.usage.instances}}</td>-->
-
-
         </tr>
-
     </tbody>
 </table>
