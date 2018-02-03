@@ -6,6 +6,7 @@
             <th scope="col">Name</th>
             <th scope="col">Description</th>
             <th scope="col">memoryAllocation</th>
+            <th scope="col">Status</th>
         </tr>
     </thead>
     <tbody>
@@ -13,8 +14,12 @@
             <td> {{faasInfo.id}}</td>
             <td>{{faasInfo.name}}</td>
             <td>{{faasInfo.description}}</td>
-            <td>{{faasInfo.memoryAllocation }}</td>
+            <td>{{faasInfo.memoryAllocation * faasInfo.usage.instances}}</td>
+            <td>{{faasInfo.usage.state}}</td>
+            <!--<td>{{faasInfo.usage | async | json}}{{faasInfo.usage.instances}}</td>-->
+
 
         </tr>
+
     </tbody>
 </table>
